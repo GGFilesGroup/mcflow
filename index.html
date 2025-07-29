@@ -243,10 +243,10 @@
       box-shadow: 0 0 20px #FFC107;
     }
 
-    /* Ikona Android SVG */
-    .android-icon {
-      width: 24px;
-      height: 24px;
+    /* Ikona strzałka w dół */
+    .download-icon {
+      width: 20px;
+      height: 20px;
       fill: #111;
       flex-shrink: 0;
     }
@@ -279,11 +279,11 @@
     </a>
 
     <!-- Nowy kafelek Download MCFlow Android -->
-    <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" target="_blank" rel="noopener" class="top-button gold-glow" style="justify-content: center;">
-      Download MCFlow for Android
-      <svg class="android-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
-        <path d="M17.523 9.826v4.734c0 .36-.326.654-.727.654h-1.583v-6.043h1.583c.401 0 .727.294.727.655zm-3.112-.003v6.04h-2.369v-6.04h2.369zm-4.877 5.385h1.58v-4.732c0-.361-.325-.654-.727-.654h-1.583v4.732c0 .36.325.654.73.654zm-2.65-5.46l-.852-1.472c-.094-.162-.3-.22-.49-.136-.19.083-.285.277-.2.44l.852 1.47a.318.318 0 00.49.136c.19-.085.285-.278.2-.44zm11.474-1.455l-.853 1.472a.312.312 0 00.2.44c.19.084.395.026.49-.136l.852-1.47c.085-.16-.01-.355-.2-.44-.19-.083-.395-.027-.49.134zm-4.35-3.357a1.197 1.197 0 00-2.34 0h2.34zM8.38 17.84a1.197 1.197 0 002.344 0H8.38z"/>
+    <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" class="top-button gold-glow" target="_blank" rel="noopener" style="box-shadow: 0 0 15px #FFD700;">
+      <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z" />
       </svg>
+      Download MCFlow for Android
     </a>
   </div>
 
@@ -314,49 +314,65 @@
         <div class="option" data-value="https://eaglercraft.com/mc/scratch/" data-desc="Scratch - an Scratch version">Scratch</div>
         <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/shadowclient/" data-desc="Shadow Client - custom client with extra features and skins.">Shadow Client</div>
         <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/resentclient/" data-desc="Resent Client - fork of Precision Client with tweaks and bugfixes.">Resent Client</div>
-        <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/resentclient-old/" data-desc="Resent Client Old - older build of Resent Client with fewer features.">Resent Client Old</div>
+        <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/eaglerforge/" data-desc="EaglerForge - modding API client based on Forge but in JS.">EaglerForge</div>
       </div>
-      <button id="openVersion" disabled>Open</button>
-      <div id="versionDescription">Select a version to see details...</div>
+      <button onclick="loadGame()">Play!</button>
+
+      <div id="versionDescription">Choose a version</div>
     </div>
   </div>
 
   <script>
     const customSelect = document.getElementById('customSelect');
-    const options = document.getElementById('options');
-    const openBtn = document.getElementById('openVersion');
-    const desc = document.getElementById('versionDescription');
-
-    let selectedOption = null;
+    const optionsContainer = document.getElementById('options');
+    const versionDescription = document.getElementById('versionDescription');
+    let selectedValue = '';
 
     customSelect.addEventListener('click', () => {
-      options.style.display = options.style.display === 'block' ? 'none' : 'block';
+      optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
     });
 
-    options.querySelectorAll('.option').forEach(option => {
-      option.addEventListener('click', () => {
-        options.style.display = 'none';
-        selectedOption = option;
-        customSelect.textContent = option.textContent;
-        desc.textContent = option.dataset.desc;
-        openBtn.disabled = false;
+    document.addEventListener('click', e => {
+      if (!customSelect.contains(e.target) && !optionsContainer.contains(e.target)) {
+        optionsContainer.style.display = 'none';
+      }
+    });
 
-        options.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    const optionElements = document.querySelectorAll('.option');
+    optionElements.forEach(option => {
+      option.addEventListener('click', () => {
+        optionElements.forEach(o => o.classList.remove('selected'));
         option.classList.add('selected');
+        customSelect.textContent = option.textContent;
+        selectedValue = option.getAttribute('data-value');
+
+        // Show description
+        const desc = option.getAttribute('data-desc') || 'No description available.';
+        versionDescription.textContent = desc;
+
+        optionsContainer.style.display = 'none';
       });
     });
 
-    openBtn.addEventListener('click', () => {
-      if(selectedOption){
-        window.open(selectedOption.dataset.value, '_blank');
+    function loadGame() {
+      if (!selectedValue) {
+        alert('Please choose a game version.');
+        return;
       }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!customSelect.contains(e.target) && !options.contains(e.target)) {
-        options.style.display = 'none';
+      const docEl = document.documentElement;
+      if (docEl.requestFullscreen) {
+        docEl.requestFullscreen();
+      } else if (docEl.mozRequestFullScreen) {
+        docEl.mozRequestFullScreen();
+      } else if (docEl.webkitRequestFullscreen) {
+        docEl.webkitRequestFullscreen();
+      } else if (docEl.msRequestFullscreen) {
+        docEl.msRequestFullscreen();
       }
-    });
+      setTimeout(() => {
+        window.location.href = selectedValue;
+      }, 300);
+    }
   </script>
 
 </body>
