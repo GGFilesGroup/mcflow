@@ -55,6 +55,7 @@
       box-shadow: 0 0 10px #8AADF4;
       transition: box-shadow 0.3s ease;
       user-select: none;
+      font-size: 16px;
     }
 
     .top-button:hover {
@@ -84,7 +85,7 @@
       max-width: 900px;
     }
 
-    .content, .bottom-bar {
+    .content {
       background-color: #1E1E2E;
       padding: 20px;
       border-radius: 16px;
@@ -100,21 +101,25 @@
     }
 
     .bottom-bar {
+      background-color: #1E1E2E;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(245, 189, 230, 0.2);
+      width: 100%;
+      max-width: 45%;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      position: relative;
       align-items: center;
+      gap: 12px;
     }
 
     .custom-select {
-      flex: 1;
       background-color: #181825;
       border: 2px solid #8AADF4;
       border-radius: 12px;
-      font-size: 16px;
+      font-size: 18px; /* zwiększona */
       color: #F5BDE6;
-      padding: 10px 15px;
+      padding: 12px 20px;
       cursor: pointer;
       user-select: none;
       position: relative;
@@ -122,16 +127,16 @@
       outline-offset: 2px;
       box-shadow: 0 0 8px #A6DA95;
       width: 100%;
-      max-width: 300px;
+      max-width: 380px; /* zwiększona szerokość */
     }
 
     .custom-select::after {
       content: '▼';
       position: absolute;
-      right: 15px;
+      right: 20px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 12px;
+      font-size: 14px;
       pointer-events: none;
       color: #A6DA95;
     }
@@ -151,7 +156,7 @@
       right: 0;
       margin-top: 0;
       width: 100%;
-      max-width: 300px;
+      max-width: 380px;
     }
 
     .option {
@@ -167,12 +172,12 @@
     }
 
     button {
-      padding: 10px 20px;
+      padding: 12px 24px;
       background-color: #8AADF4;
       border: none;
       border-radius: 12px;
       color: #11111B;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.2s ease, transform 0.2s ease;
@@ -208,28 +213,31 @@
       color: #F5BDE6;
       min-height: 60px;
       font-style: italic;
-      max-width: 300px;
+      max-width: 380px;
       width: 100%;
     }
 
     .download-android {
-      display: flex;
-      align-items: center;
-      gap: 8px;
       background-color: #1E1E2E;
-      padding: 10px 20px;
+      padding: 10px 16px;
       border-radius: 12px;
       font-weight: bold;
       color: #FFD700;
-      box-shadow: 0 0 15px #FFD700;
+      box-shadow: 0 0 12px #FFD700;
       animation: pulse 1.8s infinite;
       cursor: pointer;
       text-decoration: none;
       width: 100%;
-      max-width: 300px;
+      max-width: 380px;
+      display: flex;
+      align-items: center;
       justify-content: center;
+      gap: 8px;
+      font-size: 16px;
       user-select: none;
       transition: box-shadow 0.3s ease;
+      border: 2px solid #FFD700;
+      font-weight: 600;
     }
 
     .download-android:hover {
@@ -241,6 +249,8 @@
       fill: #FFD700;
       stroke: #FFD700;
       stroke-width: 2;
+      height: 20px;
+      width: 20px;
     }
   </style>
 </head>
@@ -270,6 +280,14 @@
         <path d="M21 6h-2V3H5v3H3v15h18V6zm-4 0H7V5h10v1zM5 20V8h14v12H5z"/>
       </svg>
       News
+    </a>
+
+    <a href="https://eaglerrinth.github.io/" class="top-button gold-glow" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#FFD700" style="flex-shrink: 0;">
+        <circle cx="12" cy="12" r="10" stroke="#FFD700" stroke-width="2" fill="none"/>
+        <path d="M8 12l3 3 5-5" stroke="#FFD700" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Eaglerrinth
     </a>
   </div>
 
@@ -304,7 +322,6 @@
       </div>
       <button onclick="loadGame()">Play!</button>
 
-      <!-- Tutaj przeniesiony kafelek download pod Play -->
       <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" 
          class="download-android" target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
