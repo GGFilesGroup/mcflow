@@ -252,11 +252,74 @@
       height: 20px;
       width: 20px;
     }
+    .download-android {
+  margin-top: 15px;
+  background-color: #3b2f00; /* ciemne złoto */
+  box-shadow: 0 0 10px 2px gold;
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: gold;
+  font-size: 16px;
+  user-select: none;
+  animation: pulse 2.5s infinite;
+}
+
+.download-text {
+  flex: 1;
+  text-align: left;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  background-color: gold;
+  color: #11111B;
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 0 8px gold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: #f3da6d;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #f3da6d;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px 2px gold;
+  }
+  50% {
+    box-shadow: 0 0 20px 5px gold;
+  }
+}
+
   </style>
 </head>
 <body>
 
   <!-- Pasek z kafelkami -->
+  <!-- Dodaj ten blok **na końcu** .bottom-bar, tuż przed zamknięciem div.bottom-bar -->
+<div class="download-android">
+  <div class="download-text">
+    Download MCFlow for Android
+  </div>
+  <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" target="_blank" rel="noopener" class="download-button">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="gold" style="margin-right:6px;">
+      <path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.67v6h4V9h3.67L12 2z"/>
+    </svg>
+    Download
+  </a>
+</div>
+
   <div class="top-buttons">
     <a href="SSettings.html" class="top-button">
       <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#8AADF4" style="flex-shrink: 0;">
