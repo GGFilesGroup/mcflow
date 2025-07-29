@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>MCFlowLauncher</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * {
       box-sizing: border-box;
@@ -54,12 +54,13 @@
       gap: 8px;
       box-shadow: 0 0 10px #8AADF4;
       transition: box-shadow 0.3s ease;
+      user-select: none;
     }
 
     .top-button.gold-glow {
-      box-shadow: 0 0 10px #FFD700;
-      animation: pulse 1.8s infinite;
       color: #FFD700;
+      box-shadow: 0 0 15px #FFD700;
+      animation: pulse 1.8s infinite;
     }
 
     .top-button:hover {
@@ -202,54 +203,6 @@
       min-height: 60px;
       font-style: italic;
     }
-
-    /* Nowy kafelek download obok News */
-    .download-tile {
-      background-color: #1E1E2E;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-      width: 45%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      color: #FFD700;
-      font-weight: bold;
-      box-shadow: 0 0 10px #FFD700;
-      animation: pulse 1.8s infinite;
-    }
-
-    .download-button {
-      background-color: #FFD700;
-      border: none;
-      border-radius: 12px;
-      padding: 10px 25px;
-      font-weight: bold;
-      font-size: 16px;
-      color: #111;
-      cursor: pointer;
-      box-shadow: 0 0 12px #FFD700;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .download-button:hover {
-      background-color: #FFC107;
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #FFC107;
-    }
-
-    /* Ikona strzałka w dół */
-    .download-icon {
-      width: 20px;
-      height: 20px;
-      fill: #111;
-      flex-shrink: 0;
-    }
   </style>
 </head>
 <body>
@@ -263,6 +216,7 @@
       </svg>
       Settings
     </a>
+
     <a href="SSkins.html" class="top-button">
       <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#A6DA95" style="flex-shrink: 0;">
         <path d="M0 0h24v24H0z" fill="none"/>
@@ -270,6 +224,7 @@
       </svg>
       Skins
     </a>
+
     <a href="NNews.html" class="top-button">
       <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#F5BDE6" style="flex-shrink: 0;">
         <path d="M0 0h24v24H0z" fill="none"/>
@@ -278,10 +233,11 @@
       News
     </a>
 
-    <!-- Nowy kafelek Download MCFlow Android -->
+    <!-- Nowy kafelek download android -->
     <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" class="top-button gold-glow" target="_blank" rel="noopener" style="box-shadow: 0 0 15px #FFD700;">
-      <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z" />
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#FFD700" style="flex-shrink: 0;">
+        <!-- Prosta strzałka w dół jak reszta ikon -->
+        <path d="M12 16l-4-4h3V4h2v8h3l-4 4z"/>
       </svg>
       Download MCFlow for Android
     </a>
