@@ -255,6 +255,64 @@
       </svg>
       Settings
     </a>
+    <div class="top-buttons">
+  <style>
+    .top-button-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: transparent;
+      border: 2px solid #D4AF37;
+      border-radius: 6px;
+      color: #D4AF37;
+      font-weight: 600;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 8px #D4AF37;
+      animation: pulseGlow 2s infinite;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .top-button-download:hover {
+      background-color: #D4AF37;
+      color: #1a1a1a;
+      box-shadow: 0 0 12px #FFD700;
+    }
+
+    .top-button-download svg {
+      fill: #D4AF37;
+      width: 20px;
+      height: 20px;
+      animation: pulseGlow 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 4px #D4AF37);
+        transform: scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 12px #FFD700);
+        transform: scale(1.05);
+      }
+    }
+  </style>
+
+  <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" 
+     class="top-button-download" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Download Android App">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M5 20h14v-2H5v2zM12 2L7 7h3v6h4V7h3l-5-5z"/>
+    </svg>
+    Download Android App
+  </a>
+</div>
+
 
     <a href="SSkins.html" class="top-button">
       <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#A6DA95" style="flex-shrink: 0;">
