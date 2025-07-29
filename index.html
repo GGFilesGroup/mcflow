@@ -167,18 +167,17 @@
     }
 
     button {
-      padding: 10px 30px;
+      padding: 10px 20px;
       background-color: #8AADF4;
       border: none;
       border-radius: 12px;
       color: #11111B;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.2s ease, transform 0.2s ease;
       box-shadow: 0 0 8px #8AADF4;
-      width: 180px;
-      user-select: none;
+      width: 150px;
     }
 
     button:hover {
@@ -218,7 +217,7 @@
       align-items: center;
       gap: 8px;
       background-color: #1E1E2E;
-      padding: 6px 15px; /* zmniejszona wysokość */
+      padding: 10px 20px;
       border-radius: 12px;
       font-weight: bold;
       color: #FFD700;
@@ -231,7 +230,6 @@
       justify-content: center;
       user-select: none;
       transition: box-shadow 0.3s ease;
-      font-size: 16px;
     }
 
     .download-android:hover {
@@ -243,8 +241,6 @@
       fill: #FFD700;
       stroke: #FFD700;
       stroke-width: 2;
-      height: 20px;
-      width: 20px;
     }
   </style>
 </head>
@@ -274,13 +270,6 @@
         <path d="M21 6h-2V3H5v3H3v15h18V6zm-4 0H7V5h10v1zM5 20V8h14v12H5z"/>
       </svg>
       News
-    </a>
-
-    <a href="https://eaglerrinth.github.io/" target="_blank" rel="noopener" class="top-button gold-glow" style="box-shadow: 0 0 15px #FFD700;">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#FFD700" style="flex-shrink: 0;">
-        <path d="M12 2L2 7l10 5 10-5-10-5zm0 13l-7-3.5v6L12 22l7-4.5v-6L12 15z"/>
-      </svg>
-      Eaglerrinth
     </a>
   </div>
 
@@ -315,16 +304,17 @@
       </div>
       <button onclick="loadGame()">Play!</button>
 
-      <div id="versionDescription">Choose a version</div>
-
+      <!-- Tutaj przeniesiony kafelek download pod Play -->
       <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" 
-         class="download-android" target="_blank" rel="noopener" aria-label="Download MCFlow for Android">
+         class="download-android" target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
           <path d="M12 3v12m0 0l-4-4m4 4l4-4"/>
           <rect x="4" y="17" width="16" height="4" rx="2" ry="2"/>
         </svg>
         Download MCFlow for Android
       </a>
+
+      <div id="versionDescription">Choose a version</div>
     </div>
   </div>
 
