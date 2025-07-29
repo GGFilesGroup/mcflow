@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skins</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Minecraft Ten', sans-serif;
+    }
+
+    body {
+      background-color: #24273A;
+      color: #F5BDE6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s ease;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      background-color: #F5BDE6;
+      color: #11111B;
+      padding: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 40px;
+      max-width: 800px;
+      padding: 30px;
+      background-color: #1E1E2E;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(245, 189, 230, 0.15);
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #CAD3F5;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: #8AADF4;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      background-color: #A6DA95;
+      color: #11111B;
+      font-size: 1rem;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #89DCEB;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .content {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>Skins</header>
+
+  <div class="content">
+    <p>
+      To apply a skin, first go to
+      <a href="https://mcskins.top" target="_blank">mcskins.top</a> and search for your desired Minecraft skin.
+      Once found, click “Download” or open the full texture preview. On mobile, you can hold the image or tap the three-dot menu and choose "Download".
+    </p>
+    <p>
+      After downloading the skin, launch Minecraft. Once loaded, click “Load Custom Skin” and select your downloaded file.
+      Your new skin should now be applied and ready to use in-game!
+    </p>
+
+    <button onclick="window.location.href='https://mcskins.top'">Start Searching</button>
+  </div>
+
+</body>
+</html>
