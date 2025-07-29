@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>MCFlowLauncher</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
       box-sizing: border-box;
@@ -29,52 +29,6 @@
       margin: 0;
     }
 
-    .top-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      width: 100%;
-      max-width: 900px;
-    }
-
-    .top-buttons a {
-      text-decoration: none;
-    }
-
-    .top-button {
-      background-color: #1E1E2E;
-      padding: 10px 20px;
-      border-radius: 12px;
-      color: #F5BDE6;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 0 10px #8AADF4;
-      transition: box-shadow 0.3s ease;
-      user-select: none;
-      font-size: 16px;
-    }
-
-    .top-button:hover {
-      box-shadow: 0 0 20px #89DCEB;
-      cursor: pointer;
-    }
-
-    .gold-glow {
-      color: #FFD700 !important;
-      box-shadow: 0 0 15px #FFD700 !important;
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 10px #FFD700; }
-      50% { box-shadow: 0 0 25px #FFD700; }
-      100% { box-shadow: 0 0 10px #FFD700; }
-    }
-
     .layout-wrapper {
       display: flex;
       flex-direction: row;
@@ -85,7 +39,7 @@
       max-width: 900px;
     }
 
-    .content {
+    .content, .bottom-bar {
       background-color: #1E1E2E;
       padding: 20px;
       border-radius: 16px;
@@ -101,42 +55,35 @@
     }
 
     .bottom-bar {
-      background-color: #1E1E2E;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(245, 189, 230, 0.2);
-      width: 100%;
-      max-width: 45%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 12px;
+      gap: 10px;
+      position: relative;
     }
 
     .custom-select {
+      flex: 1;
       background-color: #181825;
       border: 2px solid #8AADF4;
       border-radius: 12px;
-      font-size: 18px; /* większa czcionka */
+      font-size: 16px;
       color: #F5BDE6;
-      padding: 12px 20px;
+      padding: 10px 15px;
       cursor: pointer;
       user-select: none;
       position: relative;
       transition: border-color 0.3s ease;
       outline-offset: 2px;
       box-shadow: 0 0 8px #A6DA95;
-      width: 100%;
-      max-width: 380px; /* zwiększona szerokość */
     }
 
     .custom-select::after {
       content: '▼';
       position: absolute;
-      right: 20px;
+      right: 15px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 14px;
+      font-size: 12px;
       pointer-events: none;
       color: #A6DA95;
     }
@@ -155,8 +102,6 @@
       left: 0;
       right: 0;
       margin-top: 0;
-      width: 100%;
-      max-width: 380px;
     }
 
     .option {
@@ -172,17 +117,16 @@
     }
 
     button {
-      padding: 12px 24px;
+      padding: 10px 20px;
       background-color: #8AADF4;
       border: none;
       border-radius: 12px;
       color: #11111B;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.2s ease, transform 0.2s ease;
       box-shadow: 0 0 8px #8AADF4;
-      width: 150px;
     }
 
     button:hover {
@@ -213,143 +157,44 @@
       color: #F5BDE6;
       min-height: 60px;
       font-style: italic;
-      max-width: 380px;
-      width: 100%;
     }
 
-    /* PRZYCISK DOWNLOAD DOPASOWANY DO INNYCH */
-    .download-android {
-      background-color: #1E1E2E;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: bold;
-      color: #FFD700;
-      box-shadow: 0 0 12px #FFD700;
-      animation: pulse 1.8s infinite;
-      cursor: pointer;
-      text-decoration: none;
-      width: 100%;
-      max-width: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 16px;
-      user-select: none;
-      transition: box-shadow 0.3s ease;
-      border: 2px solid #FFD700;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    .download-android:hover {
-      box-shadow: 0 0 25px #FFD700;
-    }
-
-    .download-android svg {
-      flex-shrink: 0;
-      fill: #FFD700;
-      stroke: #FFD700;
-      stroke-width: 2;
-      height: 20px;
-      width: 20px;
-    }
-    .download-android {
-  margin-top: 15px;
-  background-color: #3b2f00; /* ciemne złoto */
-  box-shadow: 0 0 10px 2px gold;
-  border-radius: 12px;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  color: gold;
-  font-size: 16px;
-  user-select: none;
-  animation: pulse 2.5s infinite;
-}
-
-.download-text {
-  flex: 1;
-  text-align: left;
-}
-
-.download-button {
-  display: flex;
-  align-items: center;
-  background-color: gold;
-  color: #11111B;
-  padding: 8px 18px;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: none;
-  box-shadow: 0 0 8px gold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.download-button:hover {
-  background-color: #f3da6d;
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #f3da6d;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 10px 2px gold;
-  }
-  50% {
-    box-shadow: 0 0 20px 5px gold;
-  }
-}
-
   </style>
 </head>
 <body>
 
   <!-- Pasek z kafelkami -->
-  <!-- Dodaj ten blok **na końcu** .bottom-bar, tuż przed zamknięciem div.bottom-bar -->
-<div class="download-android">
-  <div class="download-text">
-    Download MCFlow for Android
-  </div>
-  <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" target="_blank" rel="noopener" class="download-button">
-    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="gold" style="margin-right:6px;">
-      <path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.67v6h4V9h3.67L12 2z"/>
-    </svg>
-    Download
-  </a>
-</div>
-
-  <div class="top-buttons">
-    <a href="SSettings.html" class="top-button">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#8AADF4" style="flex-shrink: 0;">
-        <path d="M0 0h24v24H0z" fill="none"/>
-        <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94s-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.92-3.32c-0.11-0.21-0.36-0.3-0.58-0.22l-2.39,0.96c-0.5-0.38-1.05-0.7-1.66-0.94L14.5,2.5C14.47,2.22,14.24,2,13.96,2h-3.92C9.76,2,9.53,2.22,9.5,2.5L9.1,5.34C8.49,5.58,7.94,5.9,7.44,6.28L5.05,5.32c-0.22-0.09-0.47,0.01-0.58,0.22L2.55,8.86c-0.11,0.21-0.06,0.48,0.12,0.62l2.03,1.58C4.64,11.36,4.62,11.68,4.62,12s0.02,0.64,0.06,0.94l-2.03,1.58c-0.18,0.14-0.23,0.41-0.12,0.62l1.92,3.32c0.11,0.21,0.36,0.3,0.58,0.22l2.39-0.96c0.5,0.38,1.05,0.7,1.66,0.94l0.4,2.84c0.03,0.28,0.26,0.5,0.54,0.5h3.92c0.28,0,0.51-0.22,0.54-0.5l0.4-2.84c0.61-0.24,1.16-0.56,1.66-0.94l2.39,0.96c0.22,0.09,0.47-0.01,0.58-0.22l1.92-3.32c0.11-0.21,0.06-0.48-0.12-0.62L19.14,12.94z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"/>
-      </svg>
-      Settings
+  <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+    <a href="SSettings.html" style="text-decoration: none;">
+      <div style="background-color: #1E1E2E; padding: 10px 20px; border-radius: 12px; box-shadow: 0 0 10px #8AADF4; color: #F5BDE6; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#8AADF4"><path d="M0 0h24v24H0z" fill="none"/><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94s-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.92-3.32c-0.11-0.21-0.36-0.3-0.58-0.22l-2.39,0.96c-0.5-0.38-1.05-0.7-1.66-0.94L14.5,2.5C14.47,2.22,14.24,2,13.96,2h-3.92C9.76,2,9.53,2.22,9.5,2.5L9.1,5.34C8.49,5.58,7.94,5.9,7.44,6.28L5.05,5.32c-0.22-0.09-0.47,0.01-0.58,0.22L2.55,8.86c-0.11,0.21-0.06,0.48,0.12,0.62l2.03,1.58C4.64,11.36,4.62,11.68,4.62,12s0.02,0.64,0.06,0.94l-2.03,1.58c-0.18,0.14-0.23,0.41-0.12,0.62l1.92,3.32c0.11,0.21,0.36,0.3,0.58,0.22l2.39-0.96c0.5,0.38,1.05,0.7,1.66,0.94l0.4,2.84c0.03,0.28,0.26,0.5,0.54,0.5h3.92c0.28,0,0.51-0.22,0.54-0.5l0.4-2.84c0.61-0.24,1.16-0.56,1.66-0.94l2.39,0.96c0.22,0.09,0.47-0.01,0.58-0.22l1.92-3.32c0.11-0.21,0.06-0.48-0.12-0.62L19.14,12.94z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"/></svg>
+        Settings
+      </div>
     </a>
-
-    <a href="SSkins.html" class="top-button">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#A6DA95" style="flex-shrink: 0;">
-        <path d="M0 0h24v24H0z" fill="none"/>
-        <path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2s2 .9 2 2v2c0 1.1-.9 2-2 2z"/>
-      </svg>
-      Skins
+    <a href="SSkins.html" style="text-decoration: none;">
+      <div style="background-color: #1E1E2E; padding: 10px 20px; border-radius: 12px; box-shadow: 0 0 10px #A6DA95; color: #F5BDE6; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#A6DA95"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2s2 .9 2 2v2c0 1.1-.9 2-2 2z"/></svg>
+        Skins
+      </div>
     </a>
-
-    <a href="NNews.html" class="top-button">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#F5BDE6" style="flex-shrink: 0;">
-        <path d="M0 0h24v24H0z" fill="none"/>
-        <path d="M21 6h-2V3H5v3H3v15h18V6zm-4 0H7V5h10v1zM5 20V8h14v12H5z"/>
-      </svg>
-      News
-    </a>
-
-    <a href="https://eaglerrinth.github.io/" class="top-button">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#F5BDE6" style="flex-shrink: 0;">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+    <a href="NNews.html" style="text-decoration: none;">
+      <div style="background-color: #1E1E2E; padding: 10px 20px; border-radius: 12px; box-shadow: 0 0 10px #F5BDE6; color: #F5BDE6; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#F5BDE6"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 6h-2V3H5v3H3v15h18V6zm-4 0H7V5h10v1zM5 20V8h14v12H5z"/></svg>
+        News
+      </div>
+        <!-- Nowy kafelek Eaglerrinth -->
+        </a>
+  <a href="https://eaglerrinth.github.io/" target="_blank" rel="noopener" style="text-decoration: none;">
+    <div style="background-color:  #1E1E2E; padding: 10px 20px; border-radius: 12px; box-shadow: 0 0 10px #EBA0AC; color: #F5BDE6; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#F5BDE6" >
+        <path d="M12 2L2 7l10 5 10-5-10-5zm0 13l-7-3.5v6L12 22l7-4.5v-6L12 15z" />
       </svg>
       Eaglerrinth
+    </div>
     </a>
   </div>
 
@@ -382,20 +227,9 @@
         <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/resentclient/" data-desc="Resent Client - fork of Precision Client with tweaks and bugfixes.">Resent Client</div>
         <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/eaglerforge/" data-desc="EaglerForge - modding API client based on Forge but in JS.">EaglerForge</div>
       </div>
-
       <button onclick="loadGame()">Play!</button>
 
-      <!-- Przycisk download for android przeniesiony i dopasowany -->
-      <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" 
-         class="download-android" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
-          <path d="M12 3v12m0 0l-4-4m4 4l4-4"/>
-          <rect x="4" y="17" width="16" height="4" rx="2" ry="2"/>
-        </svg>
-        Download MCFlow for Android
-      </a>
-
-      <div id="versionDescription">Choose a version</div>
+      <div id="versionDescription">Choose an version</div>
     </div>
   </div>
 
@@ -423,7 +257,8 @@
         customSelect.textContent = option.textContent;
         selectedValue = option.getAttribute('data-value');
 
-        const desc = option.getAttribute('data-desc') || 'No description available.';
+        // Pokaz opis
+        const desc = option.getAttribute('data-desc') || 'Brak opisu dla tej wersji.';
         versionDescription.textContent = desc;
 
         optionsContainer.style.display = 'none';
