@@ -57,15 +57,15 @@
       user-select: none;
     }
 
-    .top-button.gold-glow {
-      color: #FFD700;
-      box-shadow: 0 0 15px #FFD700;
-      animation: pulse 1.8s infinite;
-    }
-
     .top-button:hover {
       box-shadow: 0 0 20px #89DCEB;
       cursor: pointer;
+    }
+
+    .gold-glow {
+      color: #FFD700 !important;
+      box-shadow: 0 0 15px #FFD700 !important;
+      animation: pulse 1.8s infinite;
     }
 
     @keyframes pulse {
@@ -104,6 +104,7 @@
       flex-direction: column;
       gap: 10px;
       position: relative;
+      align-items: center;
     }
 
     .custom-select {
@@ -120,6 +121,8 @@
       transition: border-color 0.3s ease;
       outline-offset: 2px;
       box-shadow: 0 0 8px #A6DA95;
+      width: 100%;
+      max-width: 300px;
     }
 
     .custom-select::after {
@@ -147,6 +150,8 @@
       left: 0;
       right: 0;
       margin-top: 0;
+      width: 100%;
+      max-width: 300px;
     }
 
     .option {
@@ -172,6 +177,7 @@
       cursor: pointer;
       transition: background-color 0.2s ease, transform 0.2s ease;
       box-shadow: 0 0 8px #8AADF4;
+      width: 150px;
     }
 
     button:hover {
@@ -202,6 +208,39 @@
       color: #F5BDE6;
       min-height: 60px;
       font-style: italic;
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .download-android {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #1E1E2E;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: bold;
+      color: #FFD700;
+      box-shadow: 0 0 15px #FFD700;
+      animation: pulse 1.8s infinite;
+      cursor: pointer;
+      text-decoration: none;
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+      user-select: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .download-android:hover {
+      box-shadow: 0 0 25px #FFD700;
+    }
+
+    .download-android svg {
+      flex-shrink: 0;
+      fill: #FFD700;
+      stroke: #FFD700;
+      stroke-width: 2;
     }
   </style>
 </head>
@@ -231,15 +270,6 @@
         <path d="M21 6h-2V3H5v3H3v15h18V6zm-4 0H7V5h10v1zM5 20V8h14v12H5z"/>
       </svg>
       News
-    </a>
-
-    <!-- Nowy kafelek download android -->
-    <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" class="top-button gold-glow" target="_blank" rel="noopener" style="box-shadow: 0 0 15px #FFD700;">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#FFD700" style="flex-shrink: 0;">
-        <path d="M12 2L12 14M7 9L12 14L17 9" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <rect x="7" y="16" width="10" height="4" rx="1" ry="1" fill="#FFD700"/>
-      </svg>
-      Download MCFlow for Android
     </a>
   </div>
 
@@ -273,6 +303,16 @@
         <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/eaglerforge/" data-desc="EaglerForge - modding API client based on Forge but in JS.">EaglerForge</div>
       </div>
       <button onclick="loadGame()">Play!</button>
+
+      <!-- Tutaj przeniesiony kafelek download pod Play -->
+      <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" 
+         class="download-android" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
+          <path d="M12 3v12m0 0l-4-4m4 4l4-4"/>
+          <rect x="4" y="17" width="16" height="4" rx="2" ry="2"/>
+        </svg>
+        Download MCFlow for Android
+      </a>
 
       <div id="versionDescription">Choose a version</div>
     </div>
