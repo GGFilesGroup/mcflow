@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Minecraft Ten', sans-serif;
+    }
+
+    body {
+      background-color: #24273A;
+      color: #F5BDE6;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      background-color: #F5BDE6;
+      color: #11111B;
+      padding: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      background-color: #A6DA95;
+      color: #11111B;
+      font-size: 1rem;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #89DCEB;
+      transform: scale(1.05);
+    }
+
+    /* Modal styling */
+    #aboutModal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(4px);
+      background-color: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+    }
+
+    #aboutModal .modal-content {
+      background-color: #1E1E2E;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(245, 189, 230, 0.3);
+      animation: fadeIn 0.5s ease;
+    }
+
+    #aboutModal .modal-content p {
+      color: #CAD3F5;
+      font-size: 1rem;
+    }
+
+    #aboutModal .close-btn {
+      background-color: #F5BDE6;
+      color: #11111B;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #aboutModal .close-btn:hover {
+      background-color: #F28FAD;
+    }
+
+    a {
+      color: #8AADF4;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      button {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>Settings</header>
+
+  <div class="buttons">
+    <button id="aboutBtn">About</button>
+    <button onclick="window.location.href='https://eaglercraft.com';">Source 1</button>
+    <button onclick="window.location.href='https://minecraft.com';">Source 2</button>
+  </div>
+
+  <!-- Modal -->
+  <div id="aboutModal">
+    <div class="modal-content">
+      <p>MCFlow is a Minecraft Launcher Project that runs Eaglercraft.<br>Launcher by SildStormGG</p>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('aboutBtn').addEventListener('click', function () {
+      document.getElementById('aboutModal').style.display = 'flex';
+    });
+
+    function closeModal() {
+      document.getElementById('aboutModal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
