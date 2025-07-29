@@ -117,7 +117,7 @@
       background-color: #181825;
       border: 2px solid #8AADF4;
       border-radius: 12px;
-      font-size: 18px; /* zwiększona */
+      font-size: 18px; /* większa czcionka */
       color: #F5BDE6;
       padding: 12px 20px;
       cursor: pointer;
@@ -217,9 +217,10 @@
       width: 100%;
     }
 
+    /* PRZYCISK DOWNLOAD DOPASOWANY DO INNYCH */
     .download-android {
       background-color: #1E1E2E;
-      padding: 10px 16px;
+      padding: 12px 24px;
       border-radius: 12px;
       font-weight: bold;
       color: #FFD700;
@@ -237,7 +238,6 @@
       user-select: none;
       transition: box-shadow 0.3s ease;
       border: 2px solid #FFD700;
-      font-weight: 600;
     }
 
     .download-android:hover {
@@ -282,10 +282,9 @@
       News
     </a>
 
-    <a href="https://eaglerrinth.github.io/" class="top-button gold-glow" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#FFD700" style="flex-shrink: 0;">
-        <circle cx="12" cy="12" r="10" stroke="#FFD700" stroke-width="2" fill="none"/>
-        <path d="M8 12l3 3 5-5" stroke="#FFD700" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <a href="https://eaglerrinth.github.io/" class="top-button">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#F5BDE6" style="flex-shrink: 0;">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
       </svg>
       Eaglerrinth
     </a>
@@ -320,8 +319,10 @@
         <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/resentclient/" data-desc="Resent Client - fork of Precision Client with tweaks and bugfixes.">Resent Client</div>
         <div class="option" data-value="https://irv77.github.io/AmplerLauncher/mc/eaglerforge/" data-desc="EaglerForge - modding API client based on Forge but in JS.">EaglerForge</div>
       </div>
+
       <button onclick="loadGame()">Play!</button>
 
+      <!-- Przycisk download for android przeniesiony i dopasowany -->
       <a href="https://www.mediafire.com/file/7nzl9nfor1ezmm0/app3487795-x6y8t7_%25281%2529.apk/file" 
          class="download-android" target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
@@ -359,7 +360,6 @@
         customSelect.textContent = option.textContent;
         selectedValue = option.getAttribute('data-value');
 
-        // Show description
         const desc = option.getAttribute('data-desc') || 'No description available.';
         versionDescription.textContent = desc;
 
