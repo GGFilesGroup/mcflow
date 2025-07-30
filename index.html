@@ -233,6 +233,13 @@
     const versionDescription = document.getElementById('versionDescription');
     let selectedValue = '';
 
+       // Blokada zaznaczania
+    document.addEventListener('selectstart', e => e.preventDefault());
+    // Blokada kopiowania
+    document.addEventListener('copy', e => e.preventDefault());
+    // Blokada prawego kliku
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    
     customSelect.addEventListener('click', () => {
       optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
     });
