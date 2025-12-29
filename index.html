@@ -1,4 +1,5 @@
-<!DOCTYPE html> 
+// Questionable code
+<DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -170,7 +171,7 @@
 </head>
 <body>
 
-  <!-- Pasek z kafelkami -->
+  
   <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
     <a href="SSettings.html" style="text-decoration: none;">
       <div style="background-color: #1E1E2E; padding: 10px 20px; border-radius: 12px; box-shadow: 0 0 10px #8AADF4; color: #F5BDE6; font-weight: bold; display: flex; align-items: center; gap: 8px;">
@@ -233,11 +234,9 @@
     const versionDescription = document.getElementById('versionDescription');
     let selectedValue = '';
 
-       // Blokada zaznaczania
+    
     document.addEventListener('selectstart', e => e.preventDefault());
-    // Blokada kopiowania
     document.addEventListener('copy', e => e.preventDefault());
-    // Blokada prawego kliku
     document.addEventListener('contextmenu', e => e.preventDefault());
     
     customSelect.addEventListener('click', () => {
@@ -257,8 +256,7 @@
         option.classList.add('selected');
         customSelect.textContent = option.textContent;
         selectedValue = option.getAttribute('data-value');
-
-        // Pokaz opis
+        
         const desc = option.getAttribute('data-desc') || 'Brak opisu dla tej wersji.';
         versionDescription.textContent = desc;
 
