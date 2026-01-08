@@ -4,15 +4,8 @@
 MCFlow is very very (not as that much) good Eaglercraft launcher WITH CATPPUCIN!
 </h2>
 
-
-<a href="https://ggfilesgroup.github.io/mcflow/" target="_blank">
-  <img src="https://raw.githubusercontent.com/ggfilesgroup/mcflow/main/button_launch.png" alt="Launch MCFlow" />
-</a>
-
-&nbsp;&nbsp; 
-
-<a href="https://github.com/GGFilesGroup/mcflow/wiki" target="_blank">
-  <img src="https://raw.githubusercontent.com/ggfilesgroup/mcflow/main/button_preety-not-as-that-good-wiki.png" alt="MCFlow Wiki" />
-</a>
+[![Launch MCFlow](https://img.shields.io/badge/Launch-MCFlow-37a779?style=for-the-badge)](https://ggfilesgroup.github.io/mcflow/)
+&nbsp;&nbsp;
+[![MCFlow Wiki](https://img.shields.io/badge/MCFlow-Wiki-238636?style=for-the-badge)](https://github.com/GGFilesGroup/mcflow/wiki)
 
 </div>
