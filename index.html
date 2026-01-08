@@ -1,5 +1,5 @@
 
-<DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,10 +9,8 @@
     * {
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
+      user-select: none;
     }
-* {
-  user-select: none;
-}
 
     body {
       background-color: #24273A;
@@ -28,168 +26,40 @@
       gap: 20px;
     }
 
-    h1 {
-      font-size: 36px;
-      margin: 0;
-    }
+    h1 { font-size: 36px; margin: 0; }
+    .layout-wrapper { display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 20px; width: 100%; max-width: 900px; }
+    .content, .bottom-bar { background-color: #1E1E2E; padding: 20px; border-radius: 16px; box-shadow: 0 0 20px rgba(245, 189, 230, 0.2); width: 100%; max-width: 45%; }
+    ul { text-align: left; padding-left: 20px; margin: 0; }
 
-    .layout-wrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px;
-      width: 100%;
-      max-width: 900px;
-    }
-
-    .content, .bottom-bar {
-      background-color: #1E1E2E;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(245, 189, 230, 0.2);
-      width: 100%;
-      max-width: 45%;
-    }
-
-    ul {
-      text-align: left;
-      padding-left: 20px;
-      margin: 0;
-    }
-
-    .bottom-bar {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      position: relative;
-    }
-
-    .custom-select {
-      flex: 1;
-      background-color: #181825;
-      border: 2px solid #8AADF4;
-      border-radius: 12px;
-      font-size: 16px;
-      color: #F5BDE6;
-      padding: 10px 15px;
-      cursor: pointer;
-      user-select: none;
-      position: relative;
-      transition: border-color 0.3s ease;
-      outline-offset: 2px;
-      box-shadow: 0 0 8px #A6DA95;
-    }
-
-    .custom-select::after {
-      content: '▼';
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 12px;
-      pointer-events: none;
-      color: #A6DA95;
-    }
-
-    .options {
-      display: none;
-      background-color: #1E1E2E;
-      border: 2px solid #A6DA95;
-      border-radius: 12px;
-      max-height: 180px;
-      overflow-y: auto;
-      z-index: 100;
-      box-shadow: 0 0 15px rgba(166, 218, 149, 0.5);
-      position: absolute;
-      top: 110%;
-      left: 0;
-      right: 0;
-      margin-top: 0;
-    }
-
-    .option {
-      padding: 10px 15px;
-      cursor: pointer;
-      color: #CAD3F5;
-      transition: background-color 0.2s ease;
-    }
-
-    .option:hover, .option.selected {
-      background-color: #89DCEB;
-      color: #11111B;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #8AADF4;
-      border: none;
-      border-radius: 12px;
-      color: #11111B;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.2s ease;
-      box-shadow: 0 0 8px #8AADF4;
-    }
-
-    button:hover {
-      background-color: #89DCEB;
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #89DCEB;
-    }
-
-    .options::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .options::-webkit-scrollbar-thumb {
-      background-color: #89DCEB;
-      border-radius: 3px;
-    }
-
-    .options::-webkit-scrollbar-track {
-      background: #1E1E2E;
-    }
-
-    #versionDescription {
-      margin-top: 15px;
-      padding: 15px;
-      background-color: #2a2d45;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #8AADF4;
-      color: #F5BDE6;
-      min-height: 60px;
-      font-style: italic;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .bottom-bar { display: flex; flex-direction: column; gap: 10px; position: relative; }
+    .custom-select { flex: 1; background-color: #181825; border: 2px solid #8AADF4; border-radius: 12px; font-size: 16px; color: #F5BDE6; padding: 10px 15px; cursor: pointer; position: relative; transition: border-color 0.3s ease; outline-offset: 2px; box-shadow: 0 0 8px #A6DA95; }
+    .custom-select::after { content: '▼'; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); font-size: 12px; pointer-events: none; color: #A6DA95; }
+    .options { display: none; background-color: #1E1E2E; border: 2px solid #A6DA95; border-radius: 12px; max-height: 180px; overflow-y: auto; z-index: 100; box-shadow: 0 0 15px rgba(166, 218, 149, 0.5); position: absolute; top: 110%; left: 0; right: 0; margin-top: 0; }
+    .option { padding: 10px 15px; cursor: pointer; color: #CAD3F5; transition: background-color 0.2s ease; }
+    .option:hover, .option.selected { background-color: #89DCEB; color: #11111B; }
+    button { padding: 10px 20px; background-color: #8AADF4; border: none; border-radius: 12px; color: #11111B; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease, transform 0.2s ease; box-shadow: 0 0 8px #8AADF4; }
+    button:hover { background-color: #89DCEB; transform: scale(1.05); box-shadow: 0 0 15px #89DCEB; }
+    .options::-webkit-scrollbar { width: 6px; }
+    .options::-webkit-scrollbar-thumb { background-color: #89DCEB; border-radius: 3px; }
+    .options::-webkit-scrollbar-track { background: #1E1E2E; }
+    #versionDescription { margin-top: 15px; padding: 15px; background-color: #2a2d45; border-radius: 12px; box-shadow: 0 0 15px #8AADF4; color: #F5BDE6; min-height: 60px; font-style: italic; }
   </style>
 </head>
 <body>
 
-  
+  <!-- Markdown-style shields zamiast HTML buttonów -->
   <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
-    <a href="SSettings.html" style="text-decoration: none;">
-      <div style="background-color: #1E1E2E; padding: 10px 20px; border-radius: 12px; box-shadow: 0 0 10px #8AADF4; color: #F5BDE6; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#8AADF4"><path d="M0 0h24v24H0z" fill="none"/><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94s-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.92-3.32c-0.11-0.21-0.36-0.3-0.58-0.22l-2.39,0.96c-0.5-0.38-1.05-0.7-1.66-0.94L14.5,2.5C14.47,2.22,14.24,2,13.96,2h-3.92C9.76,2,9.53,2.22,9.5,2.5L9.1,5.34C8.49,5.58,7.94,5.9,7.44,6.28L5.05,5.32c-0.22-0.09-0.47,0.01-0.58,0.22L2.55,8.86c-0.11,0.21-0.06,0.48,0.12,0.62l2.03,1.58C4.64,11.36,4.62,11.68,4.62,12s0.02,0.64,0.06,0.94l-2.03,1.58c-0.18,0.14-0.23,0.41-0.12,0.62l1.92,3.32c0.11,0.21,0.36,0.3,0.58,0.22l2.39-0.96c0.5,0.38,1.05,0.7,1.66,0.94l0.4,2.84c0.03,0.28,0.26,0.5,0.54,0.5h3.92c0.28,0,0.51-0.22,0.54-0.5l0.4-2.84c0.61-0.24,1.16-0.56,1.66-0.94l2.39,0.96c0.22,0.09,0.47-0.01,0.58-0.22l1.92-3.32c0.11-0.21,0.06-0.48-0.12-0.62L19.14,12.94z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"/></svg>
-        Settings
-      </div>
+    <a href="SSettings.html" target="_blank">
+      <img src="https://img.shields.io/badge/Settings-363a4f?style=for-the-badge&labelColor=363a4f&color=f5bde6" alt="Settings">
     </a>
-    <a href="SSkins.html" style="text-decoration: none;">
-      <div style="background-color: #1E1E2E; padding: 10px 20px; border-radius: 12px; box-shadow: 0 0 10px #A6DA95; color: #F5BDE6; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#A6DA95"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2s2 .9 2 2v2c0 1.1-.9 2-2 2z"/></svg>
-        Skins
-      </div>
+    <a href="SSkins.html" target="_blank">
+      <img src="https://img.shields.io/badge/Skins-363a4f?style=for-the-badge&labelColor=363a4f&color=a6da95" alt="Skins">
     </a>
-    <a href="NNews.html" style="text-decoration: none;">
-      <div style="background-color: #1E1E2E; padding: 10px 20px; border-radius: 12px; box-shadow: 0 0 10px #F5BDE6; color: #F5BDE6; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="#F5BDE6"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 6h-2V3H5v3H3v15h18V6zm-4 0H7V5h10v1zM5 20V8h14v12H5z"/></svg>
-        News
-      </div>
+    <a href="NNews.html" target="_blank">
+      <img src="https://img.shields.io/badge/News-363a4f?style=for-the-badge&labelColor=363a4f&color=f5bde6" alt="News">
+    </a>
+    <a href="#play">
+      <img src="https://img.shields.io/badge/Play-363a4f?style=for-the-badge&labelColor=363a4f&color=8aadf4" alt="Play">
     </a>
   </div>
 
@@ -234,11 +104,10 @@
     const versionDescription = document.getElementById('versionDescription');
     let selectedValue = '';
 
-    
     document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('copy', e => e.preventDefault());
     document.addEventListener('contextmenu', e => e.preventDefault());
-    
+
     customSelect.addEventListener('click', () => {
       optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
     });
@@ -256,7 +125,7 @@
         option.classList.add('selected');
         customSelect.textContent = option.textContent;
         selectedValue = option.getAttribute('data-value');
-        
+
         const desc = option.getAttribute('data-desc') || 'Brak opisu dla tej wersji.';
         versionDescription.textContent = desc;
 
@@ -270,20 +139,16 @@
         return;
       }
       const docEl = document.documentElement;
-      if (docEl.requestFullscreen) {
-        docEl.requestFullscreen();
-      } else if (docEl.mozRequestFullScreen) {
-        docEl.mozRequestFullScreen();
-      } else if (docEl.webkitRequestFullscreen) {
-        docEl.webkitRequestFullscreen();
-      } else if (docEl.msRequestFullscreen) {
-        docEl.msRequestFullscreen();
-      }
-      setTimeout(() => {
-        window.location.href = selectedValue;
-      }, 300);
+      if (docEl.requestFullscreen) docEl.requestFullscreen();
+      else if (docEl.mozRequestFullScreen) docEl.mozRequestFullScreen();
+      else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+      else if (docEl.msRequestFullscreen) docEl.msRequestFullscreen();
+      setTimeout(() => { window.location.href = selectedValue; }, 300);
     }
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
